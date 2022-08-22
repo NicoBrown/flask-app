@@ -4,27 +4,45 @@
 <h2>{{page_title}}</h2>
 <hr>
 {% for job in roles.jobs %}
-<br>
-<h3>{{job.position}}</h3>
-<span>
-    <h5>{{job.title}}</h5>
-    <p class="text-align-right inline-block">${{job.salaryRange.from}} - ${{job.salaryRange.to}}</p>
-</span>
-<p><strong>Company Website:</strong> {{job.url}}</p>
-<p><strong>Role type:</strong> {{job.type}}</p>
-<p><strong>Location:</strong> {{job.location}}</p>
-<p><strong>Date Posted:</strong> {{job.posted}}</p>
-<p><strong>Required Skills:</strong> {{job.skills[0]}}, {{job.skills[1]}}, {{job.skills[2]}}</p>
-<p><strong>Required Skills:</strong> {{job.skills[0]}}, {{job.skills[1]}}, {{job.skills[2]}}</p>
-<br>
-<h6>Description</h6>
-<p>{{job.description}}</p>
-<p><strong>Incentives include:</strong><br>
-    job equity from:{{job.equity.from}} to {{job.equity.to}} <br>
-    Perks: {{job.perks[0]}}, {{job.perks[1]}}
-</p>
-<button>Apply</button>
-<hr>
+<div class="container">
+    <h3>{{job.position}}</h3>
+    <span class="row">
+        <h5 class="col-6">{{job.title}}</h5>
+        <p class="col-6 text-right">${{job.salaryRange.from}} - ${{job.salaryRange.to}}</p>
+    </span>
+    <table>
+        <tbody>
+            <tr class="col-12">
+                <col>
+                <td class="col-7">
+                    <p><strong>Company Website:</strong> {{job.url}}</p>
+                </td>
+                <td class="col-5 text-right">
+                    <p><strong>Role type:</strong> {{job.type}}</p>
+                </td>
+            </tr>
+            <tr class="col-12">
+                <td class="col-7">
+                    <p><strong>Location:</strong> {{job.location}}</p>
+                </td>
+                <td class="col-5 text-right">
+                    <p><strong>Date Posted:</strong> {{job.posted}}</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="row"><strong>Required Skills:</strong> {{job.skills[0]}}, {{job.skills[1]}}, {{job.skills[2]}}</p>
+</div>
+<div class="container">
+    <h6 class="col-12">Description</h6><br>
+    <p class="col-12">{{job.description}}</p><br>
+    <p class="col-12"><strong class="col-12">Incentives include:</strong><br>
+        job equity from:{{job.equity.from}} to {{job.equity.to}} <br>
+        Perks: {{job.perks[0]}}, {{job.perks[1]}}
+    </p>
+    <button type="button" class="btn btn-primary">Apply</button>
+    <hr>
+</div>
 {% endfor %}
 {% endblock %}
 
